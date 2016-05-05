@@ -1,0 +1,67 @@
+/**
+ * Homepage styling
+ */
+
+.intro {
+    text-align: center;
+    padding: 60px 0;
+
+    @include breakpoint($small $medium - 1) {
+        padding: 90px 0;
+    }
+
+    @include breakpoint($medium) {
+        padding: 110px 0;
+    }
+
+    h1 {
+        font-size: 20px;
+
+        @include breakpoint($small) {
+            font-size: 30px;
+        }
+    }
+
+    p {
+        font-size: 15px;
+        line-height: 19px;
+        padding-top: 20px;
+
+        @include breakpoint($small $medium - 1) {
+            font-size: 20px;
+            line-height: 28px;
+        }
+
+        @include breakpoint($medium) {
+            font-size: 24px;
+            line-height: 33px;
+        }
+    }
+}
+
+.scroll-down {
+    background: svg-url('<svg width="40" height="40" viewBox="364 640 40 40" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" transform="translate(364 640)"><circle fill="#FFF" cx="20" cy="20" r="20"/><path d="M21.018 19.322S20.49 20 20.03 20c-.44 0-.987-.678-.987-.678l-.01-.01-4.772-5.38c-.347-.44-.347-1.162 0-1.602.35-.44.92-.44 1.267 0l4.503 4.505 4.503-4.505c.35-.44.918-.44 1.267 0 .348.44.348 1.16 0 1.6l-4.773 5.382-.01.01zm0 9S20.49 29 20.03 29c-.44 0-.987-.678-.987-.678l-.01-.01-4.772-5.38c-.347-.44-.347-1.162 0-1.602.35-.44.92-.44 1.267 0l4.503 4.505 4.503-4.505c.35-.44.918-.44 1.267 0 .348.44.348 1.16 0 1.6l-4.773 5.382-.01.01z" fill="#000"/></g></svg>') center no-repeat; 
+    @include size(40px);
+    @include position(relative, null null 60px calc(50% - 20px));
+    display: block;
+    z-index: 40;
+    cursor: pointer;
+
+    a {
+        display: block;
+    }
+
+    &:hover {
+        background: svg-url('<svg width="40" height="40" viewBox="364 640 40 40" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" transform="translate(364 640)"><circle fill="#FFF" cx="20" cy="20" r="20"/><path d="M21.018 19.322S20.49 20 20.03 20c-.44 0-.987-.678-.987-.678l-.01-.01-4.772-5.38c-.347-.44-.347-1.162 0-1.602.35-.44.92-.44 1.267 0l4.503 4.505 4.503-4.505c.35-.44.918-.44 1.267 0 .348.44.348 1.16 0 1.6l-4.773 5.382-.01.01zm0 9S20.49 29 20.03 29c-.44 0-.987-.678-.987-.678l-.01-.01-4.772-5.38c-.347-.44-.347-1.162 0-1.602.35-.44.92-.44 1.267 0l4.503 4.505 4.503-4.505c.35-.44.918-.44 1.267 0 .348.44.348 1.16 0 1.6l-4.773 5.382-.01.01z" fill="#FD5454"/></g></svg>') center no-repeat; 
+    }
+
+    @include breakpoint($medium) {
+        background: svg-url('<svg width="54" height="73" viewBox="693 607 54 73" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" transform="translate(693 607)"><path d="M26.012 71.352s.528.678.987.678c.44 0 .988-.678.988-.678l.01-.01 4.772-5.38c.347-.44.347-1.162 0-1.602-.35-.44-.92-.44-1.267 0L27 68.865l-4.503-4.505c-.35-.44-.917-.44-1.267 0-.347.44-.347 1.16 0 1.602l4.773 5.38.01.01" fill="#FFF"/><circle fill="#FFF" cx="27" cy="27" r="27"/><path d="M16 20.497C16 14.702 20.932 10 27 10c6.076 0 11 4.696 11 10.497v13.006C38 39.298 33.068 44 27 44c-6.076 0-11-4.696-11-10.497V20.497zm2 0v13.006C18 38.2 22.03 42 27 42c4.96 0 9-3.804 9-8.497V20.497C36 15.8 31.97 12 27 12c-4.96 0-9 3.804-9 8.497zm7 .5c0-1.102.888-1.997 2-1.997 1.105 0 2 .887 2 1.998v4.004C29 26.105 28.112 27 27 27c-1.105 0-2-.887-2-1.998v-4.004z" fill="#000"/></g></svg>') center no-repeat; 
+        @include size(54px 73px);
+        @include position(relative, null null 95px calc(50% - 27px));
+    
+        &:hover {
+             background: svg-url('<svg width="54" height="73" viewBox="693 607 54 73" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" transform="translate(693 607)"><path d="M26.012 71.352s.528.678.987.678c.44 0 .988-.678.988-.678l.01-.01 4.772-5.38c.347-.44.347-1.162 0-1.602-.35-.44-.92-.44-1.267 0L27 68.865l-4.503-4.505c-.35-.44-.917-.44-1.267 0-.347.44-.347 1.16 0 1.602l4.773 5.38.01.01" fill="#FFF"/><circle fill="#FFF" cx="27" cy="27" r="27"/><path d="M16 20.497C16 14.702 20.932 10 27 10c6.076 0 11 4.696 11 10.497v13.006C38 39.298 33.068 44 27 44c-6.076 0-11-4.696-11-10.497V20.497zm2 0v13.006C18 38.2 22.03 42 27 42c4.96 0 9-3.804 9-8.497V20.497C36 15.8 31.97 12 27 12c-4.96 0-9 3.804-9 8.497zm7 .5c0-1.102.888-1.997 2-1.997 1.105 0 2 .887 2 1.998v4.004C29 26.105 28.112 27 27 27c-1.105 0-2-.887-2-1.998v-4.004z" fill="#FD5454"/></g></svg>') center no-repeat; 
+        }
+    }
+}

@@ -1,0 +1,187 @@
+/**
+ * Navigation styling
+ */
+
+.menu {
+        position: relative;
+        background: black;
+        height: 60px;
+        border-bottom: 1px solid white;
+    
+    @include breakpoint($small) {
+        height: 80px;
+        border: 0;
+    }
+
+    ul {
+        list-style: none;
+        display: none;
+        
+        @include breakpoint($small) {
+            display: inline-block;
+            @include size(auto 80px);
+            position: static;
+        }
+
+        li {
+
+            @include breakpoint($small) {
+                padding-top: 0;
+                font-family: $regularfont;
+                font-size: 18px;
+                display: inline-block;
+                margin-right: 45px;
+                line-height: 80px;
+
+                &:first-child {
+                    padding-top: 0;
+                }
+
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+
+            a {
+                color: $gray;
+                text-decoration: none;
+
+                &:hover {
+                    color: $carnation;
+                }
+
+                &.active {
+                    color: white;
+
+                    &:hover {
+                        color: $carnation;
+                    }
+                }
+            }
+        }
+
+        // Collapse menu
+        &.collapse {
+            @include position(absolute, 61px null null 0);
+            @include size(100% 100vh);
+            display: inline-block;
+            z-index: 100;
+            background: black;
+
+            li {
+                text-align: center;
+                font-family: $blackfont;
+                font-size: 30px;
+                padding-bottom: 50px;
+
+                &:first-child {
+                    padding-top: 50px;
+                }
+            }
+        }
+    }
+
+    .menu-brand {
+        background: svg-url('<svg width="32" height="33" viewBox="30 23 32 33" xmlns="http://www.w3.org/2000/svg"><path fill="#FFF" fill-rule="evenodd" d="M36.4 55.97L30 49.574 55.6 23.97l6.4 6.403L36.4 55.97"/></svg>') center no-repeat;
+        @include size(32px 33px);
+        text-indent: -9999px;
+        @include position(absolute, 30px null null 50%);
+        transform: translate(-50%, -50%);
+
+        @include breakpoint($small) {
+            display: inline-block;
+            @include position(relative, 10px null null 25px);
+            margin-right: 50px;
+        }   
+
+        a {
+            display: block;
+        }
+    }    
+}
+
+.hamburger {
+    @include position(absolute, 8px null null 0);
+    @include transition(opacity 0.15s linear);
+    z-index: 100;
+    display: inline-block;
+    overflow: visible;
+    padding: 10px;
+    background-color: transparent;
+    cursor: pointer;
+
+    @include breakpoint($small) {
+        display: none;
+    }
+}
+
+/**
+ * Hamburger styling
+ */
+
+.hamburger-box {
+    @include size(30px 25px);
+    position: relative;
+    display: inline-block;
+}
+
+.hamburger-inner {
+    @include position(absolute, 50% null null null);
+    @include size(30px 4px);
+    @include transition(transform, 0.15s ease);
+    display: block;
+    margin-top: -2px;
+    background-color: white;
+
+    &:before, &:after {
+        @include size(30px 4px);
+        @include transition(transform, 0.15s ease);
+        position: absolute;
+        background-color: white;
+    }
+
+    &:before, &:after {
+        display: block;
+        content: '';
+    }
+
+    &:before {
+        top: -10px;
+    }
+
+    &:after {
+        bottom: -10px;
+    }
+}
+
+.hamburger--spin {
+    .hamburger-inner {
+        @include transition-timing-function(cubic-bezier(0.55, 0.055, 0.675, 0.19));
+        @include transition-duration(0.3s);
+
+        &:before {
+            @include transition(top 0.1s 0.34s ease-in, opacity 0.1s ease-in);
+        }
+
+        &:after {
+            @include transition(bottom 0.1s 0.34s ease-in, transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19));
+        }
+    }
+    &.is-active .hamburger-inner {
+        @include transform(rotate(225deg));
+        @include transition-timing-function(cubic-bezier(0.215, 0.61, 0.355, 1));
+        @include transition-delay(0.14s);
+
+        &:before {
+            @include transition(top 0.1s ease-out, opacity 0.1s 0.14s ease-out);
+            top: 0;
+            opacity: 0;
+        }
+
+        &:after {
+            @include transition(bottom 0.1s ease-out, transform 0.3s 0.14s cubic-bezier(0.215, 0.61, 0.355, 1));
+            @include transform(rotate(-90deg));
+            bottom: 0;
+        }
+    }
+}

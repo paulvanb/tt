@@ -1,0 +1,11 @@
+{
+  "name": "tamtam",
+  "version": "1.0.0",
+  "dependencies": {
+    "jquery-validate": "~1.14.0",
+    "breakpoint-sass": "~2.6.1",
+    "bourbon": "~4.2.3",
+    "susy": "~2.2.5",
+    "modernizr": "~2.8.3"
+  }
+}

@@ -1,0 +1,149 @@
+/**
+ * Contact page styling
+ */
+
+.contact-holder {
+    text-align: center;
+    background: url('../images/instagram_feed_bg.jpg') center / cover no-repeat;
+    overflow: hidden;
+    min-height: 810px;
+
+    padding: 60px 0;
+
+    @include breakpoint($small $medium - 1) {
+        padding: 90px 0;
+    }
+
+    @include breakpoint($medium) {
+        padding: 110px 0;
+    }
+
+    h1 {
+        font-size: 20px;
+        color: white;
+        text-transfrom: uppercase;
+        @include breakpoint($small $medium - 1) {
+            font-size: 26px;
+        }
+
+        @include breakpoint($medium) {
+            font-size: 36px;
+        }
+    }
+
+    .contact-form-holder {
+        margin: 0 auto;
+        display: block;
+
+        @include breakpoint($small) {
+            width: 620px;
+        }
+
+        .message {
+            @include size(100% 60px);
+            background: rgba(0, 0, 0, 0.2);
+            color: white;
+            font-family: $regularfont;
+            font-size: 18px;
+            text-align: left;
+            line-height: 60px;
+            position: relative;
+            padding-left: 70px;
+            margin-top: 50px;
+            &:before {
+                content: '';
+                @include size(30px 60px);
+                @include position(absolute, null null null 20px);
+                background: svg-url('<svg width="30" height="30" viewBox="20 15 30 30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" transform="translate(20 15)"><circle fill-opacity=".2" fill="#000" cx="15" cy="15" r="15"/><path d="M12.154 21.588l.107.107L24 9.955 22.044 8 11.976 18.068l-4.02-4.02L6 16.002l5.87 5.87.284-.285z" fill="#FFF"/></g></svg>') left center no-repeat;
+                display: inline-block;
+            }
+        }
+    }
+
+    fieldset {
+        background: rgba(255, 255, 255, 0.2);
+        border: 0;
+        padding: 20px 10px;
+        margin-top: 50px;
+    }
+
+    .field-holder{
+        width: 100%;
+        @include breakpoint($small) {
+            width: calc(50% - 8px);
+            margin-right: 15px;
+        }
+        margin-bottom: 10px;
+        float: left;
+
+        &:nth-of-type(2n) {
+            margin-right: 0;
+        }
+    }
+    .field {
+        display: block;
+        height: 50px;
+        padding: 0 20px;
+        font-size: $lightfont;
+        font-size: 18px;
+        width: calc(100% - 40px);
+
+        @include placeholder {
+            color: $gray;
+        }
+
+        &.valid {
+            background: white svg-url('<svg width="50" height="50" viewBox="300 0 50 50" xmlns="http://www.w3.org/2000/svg"><path d="M320.54 33.805l.143.143 15.652-15.652-2.61-2.608-13.422 13.423-5.36-5.36-2.608 2.61 7.825 7.825.38-.38z" fill="#7BDB4C" fill-rule="evenodd"/></svg>') right center no-repeat;
+           
+        }        
+    }
+
+    textarea {
+        padding: 20px 10px;
+        margin-top: 10px;
+        width: calc(100% - 20px);
+        height: 120px;
+        font-size: $lightfont;
+        font-size: 18px;
+
+        &.valid {
+            background: white svg-url('<svg width="50" height="50" viewBox="300 0 50 50" xmlns="http://www.w3.org/2000/svg"><path d="M320.54 33.805l.143.143 15.652-15.652-2.61-2.608-13.422 13.423-5.36-5.36-2.608 2.61 7.825 7.825.38-.38z" fill="#7BDB4C" fill-rule="evenodd"/></svg>') right top no-repeat;
+           
+        }
+    }
+
+    input[type=submit] {
+        margin-top: 40px;
+        color: white;
+        background: $carnation;
+        padding: 10px 58px;
+        @include border-left-radius(50px);
+        @include border-right-radius(50px);
+        cursor: pointer;
+
+        &:hover {
+            background: lighten($carnation, 5%);
+        }
+    }
+
+    span.error {;
+        position: relative;
+        background: $abbey;
+        height: 40px;
+        font-size: 15px;
+        color: white;
+        display: block;
+        font-family: $lightfont;
+        line-height: 40px;
+        padding: 0 20px;
+        text-align: left;
+
+        &:before {
+            content: '';
+            display: block;
+            @include size(16px 10px);
+            @include position(absolute, -10px null null 20px);
+            background: svg-url('<svg width="16" height="10" viewBox="562 927 16 10" xmlns="http://www.w3.org/2000/svg"><path fill="#555D60" fill-rule="evenodd" d="M570 927l8 10h-16"/></svg>') center no-repeat;
+        }
+    }
+}

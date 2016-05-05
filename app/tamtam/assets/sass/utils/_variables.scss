@@ -1,0 +1,31 @@
+/**
+ * Susy Global Settings
+ * @reference http://susydocs.oddbird.net/en/latest/
+ */
+$susy: (
+    columns: 12,
+    container: 1200px,
+    gutters: .3,
+    gutter-position: after,
+    global-box-sizing: border-box,
+);
+
+/**
+ * Breakpoint variables
+ * @reference http://breakpoint-sass.com/
+ */
+$xs: 321px;
+$small: 767px;
+$medium: 992px;
+$large: 1025px;
+$xlarge: 1200px;
+$xxlarge: 1600px;
+
+/**
+ * Colors
+ */
+$carnation: #FD5454;
+$conifer: #7BDB4C;
+$juniper: #789199;
+$abbey: #555D60;
+$gray: #8E8E8E;

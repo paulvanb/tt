@@ -1,0 +1,24 @@
+/**
+ * Reset
+ */
+
+* {
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+}
+
+a img, :link img {
+    border: none;
+}
+
+input[type=text], input[type=tel], input[type=email], input[type=submit], input[type=number], textarea, select, button {
+    @include appearance(none);
+    border: none;
+}
+
+// textarea can not resize horizontal
+textarea {
+    resize: vertical;
+    overflow: auto; // remove scrollbar IE
+}

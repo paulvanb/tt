@@ -1,0 +1,243 @@
+/**
+ * Slider styling
+ */
+
+ .slider-holder {
+    height: 508px;
+    position: relative;
+
+    @include breakpoint($small) {
+        height: 700px;
+    }
+
+    // overlay
+    &:after {
+        content: '';
+        @include size(100% 225px);
+        @include position(absolute,auto null 0 null);
+        display: inline-block;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%);
+        z-index: 1;
+
+        @include breakpoint($small) {
+            @include size(100% 350px);
+        }
+    }
+}
+
+.slider {
+    position: relative;
+    height: 508px;
+
+    @include breakpoint($small) {
+        height: 700px;
+    }
+}
+
+.slide {
+    height: 508px;
+    display: block;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+    @include breakpoint($small) {
+        height: 700px;
+    }
+}
+
+.slide--1 {
+    background-image: url('../images/walibi.jpg');
+}
+
+.slide--2 {
+    background-image: url('../images/oxxio.png');
+}
+
+.slide--3 {
+    background-image: url('../images/florensis.jpg');
+}
+
+.slide-title {
+    font-size: 30px;
+    position: absolute;
+    top: 37%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: $blackfont;
+    text-transform: uppercase;
+
+    @include breakpoint($small $medium - 1) {
+        font-size: 40px;
+    }
+
+    @include breakpoint($medium) {
+        font-size: 50px;
+    }
+}
+
+.slide-button {
+    @include position(absolute, 50% null null 50%);
+    @include size(150px 40px);
+    transform: translate(-50%, -50%);
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-family: $regularfont;
+    font-size: 15px;
+    background: black;
+    display: inline-block;
+    line-height: 40px;
+    @include border-left-radius(50px);
+    @include border-right-radius(50px);
+
+    &:hover {
+        background: $carnation;
+        text-decoration: none;
+    }
+}
+
+
+    
+.owl-carousel {
+    display: none;
+    width: 100%;
+    -webkit-tap-highlight-color: transparent;
+    /* position relative and z-index fix webkit rendering fonts issue */
+    position: relative;
+    z-index: 1;
+
+    .owl-stage {
+        position: relative;
+        -ms-touch-action: pan-Y;
+    }
+
+    .owl-stage:after {
+        content: '.';
+        display: block;
+        clear: both;
+        visibility: hidden;
+        line-height: 0;
+        height: 0;
+    }
+
+    .owl-stage-outer {
+        position: relative;
+        overflow: hidden;
+        /* fix for flashing background */
+        -webkit-transform: translate3d(0px, 0px, 0px);
+    }
+
+    .owl-item {
+        position: relative;
+        min-height: 1px;
+        float: left;
+        -webkit-backface-visibility: hidden;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+    }
+    .owl-item img {
+        display: block;
+        width: 100%;
+        -webkit-transform-style: preserve-3d;
+    }
+
+    .owl-nav.disabled,
+    .owl-dots.disabled {
+        display: none;
+    }
+
+    .owl-nav .owl-prev,
+    .owl-nav .owl-next,
+    .owl-dot {
+        cursor: pointer;
+        cursor: hand;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    &.owl-loaded {
+        display: block;
+    }
+
+    &.owl-loading {
+        opacity: 0;
+        display: block;
+    }
+
+    &.owl-hidden {
+        opacity: 0;
+    }
+
+    &.owl-refresh .owl-item {
+        display: none;
+    }
+
+    &.owl-drag .owl-item {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    &.owl-grab {
+        cursor: move;
+        cursor: grab;
+    }
+
+    &.owl-rtl {
+        direction: rtl;
+    }
+
+    &.owl-rtl .owl-item {
+        float: right;
+    }
+
+    .owl-controls {
+        position: absolute;
+        top: calc(50% - 20px);
+        left: 0;
+        right:0;
+        
+        .owl-nav {
+            
+            div {
+                position: absolute;
+                top:0;
+                bottom: 0;
+                display: inline-block;
+                zoom: 1;
+                margin: 0;
+                width: 40px;
+                height: 40px;
+                line-height: 25px;
+                text-indent: -9999px;
+            } 
+            
+            .owl-prev {
+                left: calc(50% - 130px);
+                background: svg-url('<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" transform="matrix(-1 0 0 1 40 0)"><circle fill="#000" cx="20" cy="20" r="20"/><path d="M23.322 21.018S24 20.49 24 20.03c0-.44-.678-.987-.678-.987l-.01-.01-5.38-4.772c-.44-.347-1.162-.347-1.602 0-.44.35-.44.92 0 1.267l4.505 4.503-4.505 4.503c-.44.35-.44.918 0 1.267.44.348 1.16.348 1.6 0l5.382-4.773.01-.01" fill="#FFF"/></g></svg>') center no-repeat;
+
+                &:hover {
+                    background: svg-url('<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" transform="matrix(-1 0 0 1 40 0)"><circle fill="#FD5454" cx="20" cy="20" r="20"/><path d="M23.322 21.018S24 20.49 24 20.03c0-.44-.678-.987-.678-.987l-.01-.01-5.38-4.772c-.44-.347-1.162-.347-1.602 0-.44.35-.44.92 0 1.267l4.505 4.503-4.505 4.503c-.44.35-.44.918 0 1.267.44.348 1.16.348 1.6 0l5.382-4.773.01-.01" fill="#FFF"/></g></svg>') center no-repeat;
+                }
+            }
+            .owl-next {
+                right: calc(50% - 130px);
+                background: svg-url('<svg width="40" height="40" viewBox="230 0 40 40" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" transform="translate(230)"><circle fill="#000" cx="20" cy="20" r="20"/><path d="M23.322 21.018S24 20.49 24 20.03c0-.44-.678-.987-.678-.987l-.01-.01-5.38-4.772c-.44-.347-1.162-.347-1.602 0-.44.35-.44.92 0 1.267l4.505 4.503-4.505 4.503c-.44.35-.44.918 0 1.267.44.348 1.16.348 1.6 0l5.382-4.773.01-.01" fill="#FFF"/></g></svg>') center no-repeat;
+                &:hover {
+                    background: svg-url('<svg width="40" height="40" viewBox="230 0 40 40" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" transform="translate(230)"><circle fill="#FD5454" cx="20" cy="20" r="20"/><path d="M23.322 21.018S24 20.49 24 20.03c0-.44-.678-.987-.678-.987l-.01-.01-5.38-4.772c-.44-.347-1.162-.347-1.602 0-.44.35-.44.92 0 1.267l4.505 4.503-4.505 4.503c-.44.35-.44.918 0 1.267.44.348 1.16.348 1.6 0l5.382-4.773.01-.01" fill="#FFF"/></g></svg>') center no-repeat;
+                }
+            }
+        }
+    }
+}
+
+/* No Js */
+.no-js .owl-carousel {
+    display: block;
+}

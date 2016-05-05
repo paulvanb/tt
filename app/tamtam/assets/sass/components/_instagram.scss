@@ -1,0 +1,79 @@
+/**
+ * Instagram styling
+ */
+
+ .instagram {
+    text-align: center;
+    background: url('../images/instagram_feed_bg.jpg') center / cover no-repeat;
+    overflow: hidden;
+    padding: 60px 0;
+
+    @include breakpoint($small $medium - 1) {
+        padding: 90px 0;
+    }
+
+    @include breakpoint($medium) {
+        padding: 110px 0;
+    }
+    
+    h2 {
+        color: $juniper;
+        font-size: 20px;
+
+        @include breakpoint($small) {
+            font-size: 30px;
+        }
+    }
+
+    span {
+        font-family: $lightfont;
+        color: white;
+        font-size: 20px;
+        padding-top: 30px;
+        display: block;
+
+        @include breakpoint($small) {
+            font-size: 30px;
+        }
+    }
+}
+
+#instafeed {
+    margin-top: 60px;
+    .insta-item {
+        vertical-align: top;
+        margin: 0 20px 20px 0;
+        width: 325px;
+        display: inline-block;
+        
+        @include breakpoint($small $medium - 1) {
+            &:nth-child(2n) {
+                margin-right: 0;
+            }
+        }
+
+        @include breakpoint($medium) {
+            &:nth-child(3n) {
+                margin-right: 0;
+            }
+        }
+    }
+
+    .insta-image {
+        @include size(325px);
+
+        img {
+            @include size(325px);
+        }
+    }
+
+    .insta-caption {
+        text-align: left;
+        width: calc(325px - 40px);
+        padding: 20px;
+        background: white;
+        font-family: $regularfont;
+        font-size: 15px;
+        color: #76797F;
+    }
+}
